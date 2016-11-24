@@ -19,8 +19,10 @@ import org.bukkit.entity.Player;
 import com.khorn.terraincontrol.LocalMaterialData;
 import com.khorn.terraincontrol.LocalWorld;
 import com.khorn.terraincontrol.TerrainControl;
+import com.khorn.terraincontrol.configuration.ConfigFile;
 import com.khorn.terraincontrol.configuration.WorldConfig.ConfigMode;
 import com.khorn.terraincontrol.configuration.io.FileSettingsWriter;
+import com.khorn.terraincontrol.configuration.io.SettingsWriter;
 import com.khorn.terraincontrol.customobjects.CustomObject;
 import com.khorn.terraincontrol.customobjects.bo3.BO3;
 import com.khorn.terraincontrol.customobjects.bo3.BO3PlaceableFunction;
@@ -138,10 +140,9 @@ public class BO3Creator {
 
         // Don't save it every TC startup
         bo3.getSettings().settingsMode = ConfigMode.WriteDisable;
-
+        
         // Save the BO3
-        FileSettingsWriter.writeToFile(bo3.getSettings().getSettingsAsMap(), bo3.getFile(), ConfigMode.WriteAll);
-
+        FileSettingsWriter.writeToFile((ConfigFile)bo3.getSettings(), bo3.getFile(), ConfigMode.WriteAll);
         return bo3;
     }
 

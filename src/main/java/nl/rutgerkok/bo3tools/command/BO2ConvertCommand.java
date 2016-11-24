@@ -14,6 +14,7 @@ import org.bukkit.entity.Player;
 import com.khorn.terraincontrol.LocalWorld;
 import com.khorn.terraincontrol.TerrainControl;
 import com.khorn.terraincontrol.bukkit.commands.BaseCommand;
+import com.khorn.terraincontrol.configuration.ConfigFile;
 import com.khorn.terraincontrol.configuration.WorldConfig.ConfigMode;
 import com.khorn.terraincontrol.configuration.io.FileSettingsWriter;
 import com.khorn.terraincontrol.customobjects.CustomObject;
@@ -64,7 +65,7 @@ public class BO2ConvertCommand implements CommandExecutor {
         BO3 bo3 = BO2Converter.convertBO2(authorName, bo2);
 
         // Save the BO3
-        FileSettingsWriter.writeToFile(bo3.getSettings().getSettingsAsMap(), bo3.getFile(), ConfigMode.WriteAll);
+        FileSettingsWriter.writeToFile((ConfigFile)bo3.getSettings(), bo3.getFile(), ConfigMode.WriteAll);
 
         // Move old BO2
         bo2.getFile().renameTo(new File(bo2.getFile().getAbsolutePath() + ".old"));

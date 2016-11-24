@@ -11,7 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class BO3Tools extends JavaPlugin {
-    public static final int MAX_DISTANCE = 32;
+    public static final int MAX_DISTANCE = 128;
     public static final int MAX_DISTANCE_SQUARED = MAX_DISTANCE * MAX_DISTANCE;
 
     private PlayerDataCache<NextBO3Data> playerDataCache;
